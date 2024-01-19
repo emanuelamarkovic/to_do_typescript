@@ -16,12 +16,12 @@ import {
 export default function Main(){
     const [todos, setToddos] = useState([]);
     const inputRef = useRef(null)
-    function addTodo(e){
+    function addTodo(e: { preventDefault: () => void; }){
         e.preventDefault();
         const todo = inputRef.current.value;
         setToddos([...todos, todo]);
     }
-    function deleteItem(index){
+    function deleteItem(index: number){
         const updatedTodos = [...todos];
         updatedTodos.splice(index, 1);
         setToddos(updatedTodos);
